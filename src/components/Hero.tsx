@@ -181,12 +181,12 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Right Column: Professional Portrait Slideshow */}
-        <div className="flex-center hero-slideshow-wrapper">
+        <div className="flex-center hero-slideshow-wrapper" style={{ width: '100%' }}>
           <div
             className="hero-slideshow"
             style={{
-              width: '100%',
-              maxWidth: '340px',
+              width: '340px',
+              maxWidth: '100%',
               borderRadius: '12px',
               background: '#ffffff',
               border: '1px solid var(--border-color)',
@@ -301,7 +301,7 @@ export const Hero: React.FC = () => {
           }
           .hero-slideshow {
             height: 240px !important;
-            max-width: 240px !important;
+            width: 240px !important;
           }
         }
       `}</style>
