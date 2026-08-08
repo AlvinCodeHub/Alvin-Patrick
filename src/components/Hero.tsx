@@ -59,8 +59,8 @@ export const Hero: React.FC = () => {
         <div style={{ textAlign: 'left' }}>
 
           <h1
+            className="hero-title"
             style={{
-              fontSize: '3.75rem',
               lineHeight: 1.15,
               fontWeight: 800,
               marginBottom: '1rem',
@@ -72,8 +72,8 @@ export const Hero: React.FC = () => {
           </h1>
 
           <h2
+            className="hero-subtitle"
             style={{
-              fontSize: '1.8rem',
               fontWeight: 600,
               color: 'var(--text-secondary)',
               marginBottom: '1.5rem',
@@ -84,8 +84,8 @@ export const Hero: React.FC = () => {
           </h2>
 
           <p
+            className="hero-description"
             style={{
-              fontSize: '1.1rem',
               color: 'var(--text-secondary)',
               marginBottom: '2.5rem',
               maxWidth: '580px',
@@ -96,6 +96,7 @@ export const Hero: React.FC = () => {
           </p>
 
           <div
+            className="hero-buttons"
             style={{
               display: 'flex',
               flexWrap: 'wrap',
@@ -182,10 +183,10 @@ export const Hero: React.FC = () => {
         {/* Right Column: Professional Portrait Slideshow */}
         <div className="flex-center">
           <div
+            className="hero-slideshow"
             style={{
               width: '100%',
               maxWidth: '340px',
-              height: '400px',
               borderRadius: '12px',
               background: '#ffffff',
               border: '1px solid var(--border-color)',
@@ -254,6 +255,18 @@ export const Hero: React.FC = () => {
       </div>
 
       <style>{`
+        .hero-title {
+          font-size: 3.75rem;
+        }
+        .hero-subtitle {
+          font-size: 1.8rem;
+        }
+        .hero-description {
+          font-size: 1.1rem;
+        }
+        .hero-slideshow {
+          height: 400px;
+        }
         @media (max-width: 992px) {
           #hero .container {
             grid-template-columns: 1fr !important;
@@ -267,6 +280,23 @@ export const Hero: React.FC = () => {
           }
           #hero .btn {
             margin: 0.25rem auto;
+          }
+          #hero .hero-buttons {
+            justify-content: center !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .hero-title {
+            font-size: 2.25rem !important;
+          }
+          .hero-subtitle {
+            font-size: 1.35rem !important;
+          }
+          .hero-description {
+            font-size: 0.95rem !important;
+          }
+          .hero-slideshow {
+            height: 320px !important;
           }
         }
       `}</style>
