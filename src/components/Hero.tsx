@@ -192,9 +192,6 @@ export const Hero: React.FC = () => {
               border: '1px solid var(--border-color)',
               padding: '10px',
               boxShadow: 'var(--shadow-glass)',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
               position: 'relative',
               overflow: 'hidden',
             }}
