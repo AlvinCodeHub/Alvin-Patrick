@@ -56,7 +56,7 @@ export const Hero: React.FC = () => {
         }}
       >
         {/* Left Column: Content */}
-        <div style={{ textAlign: 'left' }}>
+        <div className="hero-content" style={{ textAlign: 'left' }}>
 
           <h1
             className="hero-title"
@@ -181,7 +181,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Right Column: Professional Portrait Slideshow */}
-        <div className="flex-center">
+        <div className="flex-center hero-slideshow-wrapper">
           <div
             className="hero-slideshow"
             style={{
@@ -267,8 +267,14 @@ export const Hero: React.FC = () => {
         @media (max-width: 992px) {
           #hero .container {
             grid-template-columns: 1fr !important;
-            gap: 2.5rem !important;
+            gap: 1.5rem !important;
             text-align: center !important;
+          }
+          #hero .hero-content {
+            order: 2 !important;
+          }
+          #hero .hero-slideshow-wrapper {
+            order: 1 !important;
           }
           #hero div {
             text-align: center !important;
@@ -291,9 +297,11 @@ export const Hero: React.FC = () => {
           }
           .hero-description {
             font-size: 0.95rem !important;
+            margin-bottom: 1.5rem !important;
           }
           .hero-slideshow {
-            height: 320px !important;
+            height: 240px !important;
+            max-width: 240px !important;
           }
         }
       `}</style>
