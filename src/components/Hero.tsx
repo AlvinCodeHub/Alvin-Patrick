@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
         <div className="hero-content" style={{ textAlign: 'left' }}>
 
           <h1
-            className="hero-title"
+            className="hero-title animate-fade-in-up delay-100"
             style={{
               lineHeight: 1.15,
               fontWeight: 800,
@@ -72,7 +72,7 @@ export const Hero: React.FC = () => {
           </h1>
 
           <h2
-            className="hero-subtitle"
+            className="hero-subtitle animate-fade-in-up delay-200"
             style={{
               fontWeight: 600,
               color: 'var(--text-secondary)',
@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
           </h2>
 
           <p
-            className="hero-description"
+            className="hero-description animate-fade-in-up delay-300"
             style={{
               color: 'var(--text-secondary)',
               marginBottom: '2.5rem',
@@ -96,7 +96,7 @@ export const Hero: React.FC = () => {
           </p>
 
           <div
-            className="hero-buttons"
+            className="hero-buttons animate-fade-in-up delay-400"
             style={{
               display: 'flex',
               flexWrap: 'wrap',
@@ -183,7 +183,7 @@ export const Hero: React.FC = () => {
         {/* Right Column: Professional Portrait Slideshow */}
         <div className="flex-center hero-slideshow-wrapper" style={{ width: '100%' }}>
           <div
-            className="hero-slideshow"
+            className="hero-slideshow animate-fade-in-scale delay-200"
             style={{
               width: '340px',
               maxWidth: '100%',
