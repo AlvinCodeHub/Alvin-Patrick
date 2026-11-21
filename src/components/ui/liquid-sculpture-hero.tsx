@@ -378,7 +378,7 @@ function compile(gl: WebGL2RenderingContext, vs: string, fs: string): Prog {
 const TEX_W = 1024
 const SETTLE_FRAMES = 270
 
-export class LiquidEngine {
+class LiquidEngine {
   lastImage: HTMLImageElement | null = null
   /** Called once, after the first frame has actually been drawn. */
   onFirstFrame: (() => void) | null = null

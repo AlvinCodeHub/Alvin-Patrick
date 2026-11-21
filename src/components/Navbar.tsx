@@ -3,9 +3,10 @@ import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   activeSection: string;
+  onReplayIntro?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection, onReplayIntro }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -64,7 +65,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         {/* Logo */}
         <div
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => {
+            if (onReplayIntro) onReplayIntro();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          title="Click to replay intro"
           style={{
             display: 'flex',
             alignItems: 'center',

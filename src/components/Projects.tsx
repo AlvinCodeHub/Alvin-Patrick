@@ -26,6 +26,91 @@ export const Projects: React.FC = () => {
   const [hoveredTab, setHoveredTab] = useState<string | null>(null);
 
   const projectsData: Project[] = [
+
+    {
+      id: 'mcpulse',
+      title: 'MCPulse: Natural-Language Office Automation',
+      category: 'AI / Automation',
+      type: 'Academic',
+      source: 'Independent Project (Invention Disclosure Draft)',
+      tags: ['MCP', 'TypeScript', 'Office.js', 'WebSocket', 'Automation'],
+      summary: 'Control Microsoft Excel and Word with plain English through an MCP server, a WebSocket bridge and Office add-ins.',
+      description: 'MCPulse connects an AI client, a Model Context Protocol (MCP) server, a WebSocket bridge and Office.js add-ins so that an instruction such as "put a border on all the data in the table" is actually executed inside the open Excel workbook, not just explained. Working prototype with 9 Excel tools and 25 Word tools; PowerPoint support is planned.',
+      problem: 'AI assistants can explain Office steps or draft content, but they cannot reliably act inside the active application. Macros and custom scripts are fragmented, and multi-step tasks like "read the marks, chart them and write a report" need chained operations.',
+      solution: 'Built a layered architecture: an AI host plans and selects tools, a Node.js + TypeScript MCP server validates inputs with Zod schemas, a WebSocket bridge routes requests, and an Office.js add-in executes them in Excel or Word and returns structured results.',
+      features: [
+        '9 Excel tools: read/write/clear ranges, formatting, borders, tables, charts and basic data analysis',
+        '25 Word tools: headings, lists, tables, fonts, colours, find and replace, hyperlinks, images and document structure inspection',
+        'Schema-validated atomic tools, 10-second timeouts and structured error responses',
+        'Cross-application workflow tested: read an Excel sheet, then write a Word report from it',
+        'Document Style Intelligence (formatting profiles and verification) under development',
+      ],
+      contribution: 'Designed and implemented the MCP server, tool schemas, WebSocket bridge and Office.js add-in, and tested the tools live from natural-language prompts in Excel and Word.',
+      technologies: ['TypeScript', 'Node.js', 'Model Context Protocol', 'Zod', 'WebSocket', 'Office.js', 'Webpack'],
+    },
+    {
+      id: 'agrisense',
+      title: 'AgriSense AI: Crop Disease Diagnosis',
+      category: 'AI & ML',
+      type: 'Academic',
+      source: 'College Mini Project',
+      tags: ['MobileNetV2', 'TensorFlow', 'Flask', 'React', 'Supabase', 'Machine Learning'],
+      summary: 'Web decision-support system that diagnoses crop leaf diseases from images and suggests crop-care guidance.',
+      description: 'A farmer picks a crop, uploads a leaf image and enters growth stage, soil condition and symptoms. A Flask service classifies the image with a MobileNetV2 transfer-learning model (Tomato, Potato and Pepper), and a rule-based Crop Context Intelligence layer retrieves guidance from an agricultural knowledge base. Built as a prototype for preliminary screening.',
+      problem: 'Farmers often lack quick access to expert diagnosis, do not know what to do once a problem is suspected, and keep no record of past crop problems. Most detectors return only a class label.',
+      solution: 'A three-tier app: React + TypeScript front end, Supabase Auth and a Flask AI prediction service, and a Supabase PostgreSQL database with private image storage protected by Row Level Security. The result separates the AI prediction, the farmer input and the rule-based recommendations, and flags low-confidence predictions.',
+      features: [
+        'MobileNetV2 classifier for Tomato, Potato and Pepper leaf diseases',
+        'Crop Context Intelligence: transparent rules using growth stage, soil and symptoms',
+        'Confidence threshold with an uncertain-result path, and clearly labelled demo data',
+        'Private diagnosis history with role-based dashboards for farmers and administrators',
+        'Admin interface to manage the crop and disease knowledge base',
+      ],
+      contribution: 'Worked across the prototype lifecycle: React/TypeScript interface, Flask prediction API, Supabase database and security design, and the project report.',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Flask', 'TensorFlow', 'Keras', 'MobileNetV2', 'Supabase'],
+    },
+    {
+      id: 'iot-nexus',
+      title: 'IoT-Nexus: Device Discovery & Diagnostics',
+      category: 'IoT / Full Stack',
+      type: 'Academic',
+      source: 'TIH IoT Technology Development Programme 2026 (Proposal)',
+      tags: ['IoT', 'mDNS', 'MQTT', 'Node.js', 'React'],
+      summary: 'Proposed protocol-agnostic platform that discovers, monitors and diagnoses ESP32, ESP8266 and Raspberry Pi devices from one dashboard.',
+      description: 'A project proposal submitted under the TIH IoT Technology Development Programme (31 Oct 2026) with Dr. V. D. Ashok Kumar as PI and Dr. K. R. Shanthi as Co-PI. A local Node.js agent uses mDNS/DNS-SD with MQTT and HTTP to discover compatible devices on an authorised network and feed a central dashboard.',
+      problem: 'IoT boards and sensors are monitored with separate vendor apps, serial monitors and scripts, so discovery, health checks and fault detection stay manual and fragmented.',
+      solution: 'A five-layer design: React dashboard, Node.js backend, local network discovery agent, device communication layer, and a database with analytics (SQLite, with a PostgreSQL option) for rule-based and statistical anomaly detection.',
+      features: [
+        'Automatic discovery of compatible devices using mDNS and DNS-SD',
+        'Real-time sensor visualisation, device status and diagnostics',
+        'Rule-based and statistical anomaly detection with alerts and historical reports',
+        'Proposed targets: discovery within 60 s, dashboard latency under 2 s, at least 20 devices',
+        'Security by design: authorised networks only, device pairing, authentication and RBAC',
+      ],
+      contribution: 'Student researcher on the proposal: concept development, system design, and planned software development, IoT integration, data processing and testing.',
+      technologies: ['Node.js', 'React', 'MQTT', 'mDNS / DNS-SD', 'WebSocket', 'SQLite', 'PostgreSQL', 'ESP32'],
+    },
+    {
+      id: 'powersentinel',
+      title: 'PowerSentinel: Predictive Maintenance IoT',
+      category: 'IoT / AI',
+      type: 'Academic',
+      source: 'TIH IoT Technology Development Programme 2026 (Proposal)',
+      tags: ['IoT', 'Machine Learning', 'Anomaly Detection', 'ESP32', 'Predictive Maintenance'],
+      summary: 'Proposed AI-enabled IoT system for condition monitoring and predictive maintenance of industrial electrical equipment.',
+      description: 'A project proposal submitted under the TIH IoT Technology Development Programme (31 Oct 2026) with Dr. V. D. Ashok Kumar as PI and Dr. D. Prabhu as Co-PI. Sensors capture current, voltage, temperature and vibration from motors and pumps, an edge gateway forwards the data, and an analytics engine flags abnormal operating patterns.',
+      problem: 'Small and medium industries rarely have affordable, integrated condition monitoring. Equipment is checked manually with separate instruments, so developing faults and energy inefficiency are noticed late.',
+      solution: 'A six-layer platform: ESP32 data acquisition, Raspberry Pi edge gateway with MQTT, a Node.js and PostgreSQL backend, a Python analytics engine (statistical methods and Isolation Forest) and a React monitoring dashboard.',
+      features: [
+        'Multi-parameter monitoring: current, voltage, power, temperature and vibration',
+        'Anomaly detection using thresholds, moving averages, statistical bands and Isolation Forest',
+        'Equipment health indicator, maintenance alerts and energy analytics',
+        'Proposed targets: dashboard latency under 2 s, data availability of at least 95%, precision of at least 90% on a labelled test set',
+        'Safety-first design with isolated measurement modules and a low-voltage lab prototype',
+      ],
+      contribution: 'Student researcher on the proposal: planned software development, IoT integration, data processing and testing.',
+      technologies: ['ESP32', 'Raspberry Pi', 'MQTT', 'Node.js', 'Python', 'scikit-learn', 'PostgreSQL', 'React'],
+    },
     {
       id: 'lead-qual',
       title: 'Lead Qualification AI',
@@ -247,6 +332,7 @@ export const Projects: React.FC = () => {
     'Automation',
     'Data Analytics',
     'Web Development',
+    'IoT',
   ];
 
   const filteredProjects = projectsData.filter((p) => {
@@ -257,6 +343,7 @@ export const Projects: React.FC = () => {
     if (filter === 'Generative AI') return p.category.includes('Generative AI') || p.tags.includes('Gemini AI') || p.tags.includes('Ollama');
     if (filter === 'Automation') return p.category.includes('Automation') || p.tags.includes('Automation') || p.tags.includes('n8n');
     if (filter === 'Data Analytics') return p.category.includes('Data Analytics') || p.category.includes('Power BI') || p.tags.includes('Data Viz');
+    if (filter === 'IoT') return p.category.includes('IoT') || p.tags.includes('IoT');
     if (filter === 'Web Development') return p.category.includes('Web Development') || p.category.includes('Full Stack') || p.tags.includes('React');
     return true;
   });

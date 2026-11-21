@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { TaglineIntro } from './components/ui/TaglineIntro';
 import { BackgroundEffect } from './components/BackgroundEffect';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -14,13 +15,14 @@ import { Contact } from './components/Contact';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero');
+  const [showIntro, setShowIntro] = useState(true);
 
   useEffect(() => {
     const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'research', 'certifications', 'education', 'resume', 'contact'];
     
     const observerOptions = {
       root: null,
-      rootMargin: '-30% 0px -60% 0px', // Trigger when section occupies the sweet spot of viewport
+      rootMargin: '-30% 0px -60% 0px',
       threshold: 0,
     };
 
@@ -49,6 +51,9 @@ const App: React.FC = () => {
 
   return (
     <>
+      {/* 10-Second Liquid Glass & Motion TextReveal Tagline Intro */}
+      {showIntro && <TaglineIntro onComplete={() => setShowIntro(false)} />}
+
       {/* Background Interactive Network Effect */}
       <BackgroundEffect />
 
@@ -56,7 +61,7 @@ const App: React.FC = () => {
       <div className="scanline" />
 
       {/* Navigation */}
-      <Navbar activeSection={activeSection} />
+      <Navbar activeSection={activeSection} onReplayIntro={() => setShowIntro(true)} />
 
       {/* Main Sections */}
       <main style={{ width: '100%' }}>

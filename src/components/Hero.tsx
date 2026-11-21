@@ -14,7 +14,7 @@ export const Hero: React.FC = () => {
     }, 10000); // 10 seconds
 
     return () => clearInterval(timer);
-  }, []);
+  }, [images.length]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -57,7 +57,6 @@ export const Hero: React.FC = () => {
       >
         {/* Left Column: Content */}
         <div className="hero-content" style={{ textAlign: 'left' }}>
-
           <h1
             className="hero-title animate-fade-in-up delay-100"
             style={{
